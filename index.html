@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'"
+    >
+    <meta name="description" content="Laboratório educativo para identificar sinais de phishing sem coletar dados pessoais.">
+    <title>Radar de Phishing | Laboratório educativo</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <div class="training-banner">
+      SIMULAÇÃO EDUCATIVA · Marca fictícia · Não informe dados pessoais
+    </div>
+    <header class="site-header page-width">
+      <a class="brand" href="#inicio" aria-label="Radar de Phishing, início">
+        <span class="brand-icon" aria-hidden="true">R</span>
+        Radar de Phishing
+      </a>
+      <span class="course-tag">DIO · Cibersegurança</span>
+    </header>
+
+    <main id="inicio" class="page-width">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">OBSERVAR. QUESTIONAR. PROTEGER.</p>
+        <h1 id="page-title">Você reconheceria<br>uma tentativa de phishing?</h1>
+        <p class="lead">
+          Analise uma mensagem fictícia, encontre os sinais de alerta e
+          descubra como agir antes de colocar uma conta em risco.
+        </p>
+        <div class="privacy-note">
+          Sem login, sem senhas, sem rastreamento. Suas escolhas ficam apenas
+          na memória desta página e desaparecem ao recarregar.
+        </div>
+      </section>
+
+      <div class="exercise-grid">
+        <section class="card message-card" aria-labelledby="message-title">
+          <div class="section-topline">
+            <span class="step-number">01</span>
+            <p class="eyebrow">ANALISE A MENSAGEM</p>
+          </div>
+          <h2 id="message-title">Uma notificação inesperada</h2>
+          <p class="section-description">
+            Exemplo inventado para treinamento. A Rede Aurora não é um serviço real deste projeto.
+          </p>
+          <article class="mock-message" aria-label="Mensagem fictícia suspeita">
+            <div class="message-heading">
+              <span class="avatar" aria-hidden="true">A</span>
+              <div>
+                <strong>Rede Aurora · Avisos</strong>
+                <p id="evidence-sender">avisos@conta-aurora.invalid</p>
+              </div>
+              <span class="mock-tag">FICTÍCIO</span>
+            </div>
+            <div class="message-body">
+              <h3>Ação necessária na sua conta</h3>
+              <p>Olá, participante!</p>
+              <p id="evidence-urgency">
+                Sua conta será suspensa em 15 minutos. Aja agora para evitar
+                perder seu acesso e suas publicações.
+              </p>
+              <p id="evidence-link">
+                Para impedir o bloqueio, abra o endereço abaixo e confirme seu
+                acesso fora do aplicativo.
+              </p>
+              <code class="fake-address">https://validacao-aurora.invalid/confirmar</code>
+              <p class="message-footnote">
+                Endereço ilustrativo e não clicável. Neste exercício, o domínio
+                de referência da marca fictícia seria <code>rede-aurora.invalid</code>.
+              </p>
+            </div>
+          </article>
+          <p class="small-note">
+            Os endereços usam <code>.invalid</code>, reservado para nomes
+            intencionalmente inválidos. Nenhum deles é acessado pela aplicação.
+          </p>
+        </section>
+
+        <section class="card quiz-card" aria-labelledby="quiz-title">
+          <div class="section-topline">
+            <span class="step-number">02</span>
+            <p class="eyebrow">TESTE SEU OLHAR</p>
+          </div>
+          <h2 id="quiz-title">O que merece desconfiança?</h2>
+          <p class="section-description" id="quiz-hint">
+            Marque apenas os sinais que tornam esta mensagem suspeita.
+            Há uma alternativa que não é um sinal de fraude por si só.
+          </p>
+          <noscript>
+            <p class="notice">Ative o JavaScript para responder ao exercício. A leitura da mensagem e das orientações continua disponível.</p>
+          </noscript>
+          <fieldset id="signal-options" aria-describedby="quiz-hint">
+            <legend class="visually-hidden">Sinais de alerta na mensagem fictícia</legend>
+          </fieldset>
+          <p class="selection-count" id="selection-count" aria-live="polite">Nenhuma alternativa marcada.</p>
+          <div class="actions">
+            <button type="button" class="button-primary" id="review-button" disabled>Conferir análise</button>
+            <button type="button" class="button-secondary" id="reset-button" disabled>Recomeçar</button>
+          </div>
+
+          <section class="feedback" id="feedback" aria-labelledby="feedback-title" hidden>
+            <h3 id="feedback-title" tabindex="-1">Resultado da análise</h3>
+            <p id="score"></p>
+            <ul id="explanations"></ul>
+            <p class="feedback-takeaway">
+              Não use o endereço da mensagem. Abra o aplicativo oficial ou
+              digite um endereço já conhecido e confirme a notificação por outro canal.
+            </p>
+          </section>
+        </section>
+      </div>
+
+      <section class="prevention" aria-labelledby="prevention-title">
+        <p class="eyebrow">LEVE ESTE HÁBITO COM VOCÊ</p>
+        <h2 id="prevention-title">Pare. Confira. Só então prossiga.</h2>
+        <div class="prevention-grid">
+          <div>
+            <h3>Confira o domínio</h3>
+            <p>Nome, logotipo e aparência podem ser copiados. Verifique o endereço completo e use canais conhecidos.</p>
+          </div>
+          <div>
+            <h3>Proteja sua conta</h3>
+            <p>Prefira passkeys ou MFA resistente a phishing, quando disponíveis. Nunca compartilhe códigos de verificação.</p>
+          </div>
+          <div>
+            <h3>Reporte a tentativa</h3>
+            <p>Use a opção de denúncia do serviço ou avise a equipe responsável. Se informou uma senha, troque-a pelo canal oficial e encerre sessões desconhecidas.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-width">
+      Projeto autoral de conscientização · Adaptação segura do desafio DIO.
+      Sem afiliação com redes sociais reais.
+    </footer>
+  </body>
+</html>
